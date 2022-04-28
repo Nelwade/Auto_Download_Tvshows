@@ -1,0 +1,28 @@
+from selenium import webdriver
+from selenium.webdriver.common.keys import Keys
+
+import time
+
+
+#options = webdriver.ChromeOptions()
+driver = webdriver.Chrome(executable_path='C:/chromedriver') # load the chrome drive
+driver.implicitly_wait(0.5)
+driver.get("https://thepiratebay.org/index.html")
+
+torrent = driver.find_elements_by_name("q")[1] # There were more than one search elements named q. The second one was teh pirate search
+driver.implicitly_wait(10)
+
+
+torrent.send_keys("This is Us S01E01")
+driver.implicitly_wait(1)
+#torrent.send_keys(Keys.ENTER)
+
+torrent.submit()
+
+time.sleep(0.5)
+driver.quit()
+
+# torrent.send_keys(Keys.ENTER)
+
+
+

@@ -1,0 +1,64 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Mon Apr 25 10:23:09 2022
+
+@author: Stewie
+"""
+
+import re
+from urllib.request import Request, urlopen
+from bs4 import BeautifulSoup
+import re
+
+x = Request("https://next-episode.net/recent/",
+            headers={'User-Agent': 'Mozilla/5.0'})
+x = urlopen(x)
+html = x.read().decode("latin-1")
+soup = BeautifulSoup(html, "html.parser")
+
+recent_episodes = soup.find_all('span', class_ = "footer")
+yester_eps = recent_episodes[2]
+
+yester_eps = yester_eps.find_all('div')
+eps = dict()
+for div in yester_eps:
+
+    tv_show_name = div.h3.string
+    print(div.text)
+
+    ep_num = re.search('-\s.*\s-', div.text)
+    #print(ep_num)
+    ep_num = ep_num.group().strip("-").strip()
+    ep_num = ep_num.split('x')
+    print(ep_num)
+    
+    season = ep_num[0]
+    
+    if int(season) < 10:
+        season = "S0" + str(season)
+    else:
+        season = "S" + str(season)
+
+     
+    episode = "E" + str(ep_num[1])
+    # if int(episode) < 10:
+    #     episode = "E0" + str(episode)
+    # else:
+    #     episode = "E" + str(episode)
+    
+    ep_num = season + episode
+    print(tv_show_name)
+    # print(season, " ", episode)
+    # print(ep_num)
+    # print("\n\n")
+    
+# print(len(recent_episodes))
+#yester_episodes= recent_episodes.find_all('h2')
+#today = re.findall("Yesterday's TV Episodes*Upcoming TV Shows", today)
+#print(recent_episodes[1])
+#print(tag.h2.string for tag in today)
+
+
+# with open('pirate.txt', 'w') as next:
+# for line in x:
+# next.write(line.decode())
