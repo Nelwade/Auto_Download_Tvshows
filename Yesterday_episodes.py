@@ -10,6 +10,7 @@ from urllib.request import Request, urlopen
 from bs4 import BeautifulSoup
 import re
 import os
+import browser
 
 def if_in_favourites (tv_show_name):
     os.chdir(r'C:\Users\Stewie\Dropbox\My PC (DESKTOP-57VNQ1O)\Documents\Python projects\Auto_Download_Tvshows')
@@ -53,12 +54,12 @@ def all_episodes(): # returns all episodes from the previous day that can be dow
             
             ep_num = season + episode
             search = tv_show_name + " " + ep_num
+            browser.download(search)
             #all_episodes[tv_show_name] = ep_num
         else:
             continue
-        print (search)
 
-print(all_episodes())
+all_episodes()
     
     # print(tv_show_name)
     # print(season, " ", episode)

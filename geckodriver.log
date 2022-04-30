@@ -1,0 +1,133 @@
+1651340534327	geckodriver	INFO	Listening on 127.0.0.1:61743
+1651340538075	mozrunner::runner	INFO	Running command: "C:\\Program Files (x86)\\Mozilla Firefox\\firefox.exe" "--marionette" "--remote-debugging-port" "61744" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\Stewie\\AppData\\Local\\Temp\\rust_mozprofileZYuoo5"
+1651340543150	Marionette	INFO	Marionette enabled
+console.error: Region.jsm: "Error fetching region" (new Error("TIMEOUT", "resource://gre/modules/Region.jsm", 772))
+console.error: Region.jsm: "Failed to fetch region" (new Error("TIMEOUT", "resource://gre/modules/Region.jsm", 419))
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\Stewie\\AppData\\Local\\Temp\\rust_mozprofileZYuoo5\\search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:61744/devtools/browser/e5d87f65-8b98-4e02-819f-0ff84e730170
+1651340573636	Marionette	INFO	Listening on port 61801
+Read port: 61801
+1651340573877	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+1651340651441	Marionette	INFO	Stopped listening on port 61801
+console.warn: TopSitesFeed: Failed to fetch data from Contile server: NetworkError when attempting to fetch resource.
+1651340656090	geckodriver	INFO	Listening on 127.0.0.1:61874
+1651340658999	mozrunner::runner	INFO	Running command: "C:\\Program Files (x86)\\Mozilla Firefox\\firefox.exe" "--marionette" "--remote-debugging-port" "61875" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\Stewie\\AppData\\Local\\Temp\\rust_mozprofileHiMx4B"
+1651340662715	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\Stewie\\AppData\\Local\\Temp\\rust_mozprofileHiMx4B\\search.json.mozlz4", (void 0)))
+console.error: Region.jsm: "Error fetching region" (new AbortError("The operation was aborted. ", (void 0), 770))
+console.error: Region.jsm: "Failed to fetch region" (new Error("NO_RESULT", "resource://gre/modules/Region.jsm", 419))
+DevTools listening on ws://localhost:61875/devtools/browser/0bbcfcdb-8403-48bd-bcb9-3184142c4053
+1651340676404	Marionette	INFO	Listening on port 61917
+Read port: 61917
+1651340676760	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: https://thepiratebay.org/static/main.js, line 51: unreachable code after return statement
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://thepiratebay.org"
+JavaScript warning: https://thepiratebay.org/static/main.js, line 51: unreachable code after return statement
+JavaScript warning: https://c.adsco.re/, line 45: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+SourceActor threw an exception: [Exception... "Component returned failure code: 0x80470002 (NS_BASE_STREAM_CLOSED) [nsIInputStream.available]"  nsresult: "0x80470002 (NS_BASE_STREAM_CLOSED)"  location: "JS frame :: resource://devtools/shared/DevToolsUtils.js :: onResponse :: line 567"  data: no]
+Stack: onResponse@resource://devtools/shared/DevToolsUtils.js:567:34
+onStopRequest@resource://gre/modules/NetUtil.jsm:128:18
+Line: 567, column: 0
+console.error: ({})
+JavaScript error: resource://devtools/shared/DevToolsUtils.js, line 567: NS_BASE_STREAM_CLOSED: Component returned failure code: 0x80470002 (NS_BASE_STREAM_CLOSED) [nsIInputStream.available]
+JavaScript error: resource://gre/modules/AsyncShutdown.jsm, line 575: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: resource://gre/modules/AsyncShutdown.jsm, line 575: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: resource://gre/modules/AsyncShutdown.jsm, line 575: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: resource://gre/modules/AsyncShutdown.jsm, line 575: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+1651340895572	Marionette	INFO	Stopped listening on port 61917
+console.warn: TopSitesFeed: Failed to fetch data from Contile server: NetworkError when attempting to fetch resource.
+[Parent 4640, IPC I/O Parent] WARNING: file /builds/worker/checkouts/gecko/ipc/chromium/src/base/process_util_win.cc:167
+", "resource://gre/modules/Region.jsm", 419))
+DevTools listening on ws://localhost:62069/devtools/browser/7a0958a8-7ef9-4d43-9b25-0a17460dc61f
+1651340850294	Marionette	INFO	Listening on port 62115
+Read port: 62115
+Read port: 62115
+1651340853595	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+1651340889765	Marionette	INFO	Stopped listening on port 62115
+console.warn: TopSitesFeed: Failed to fetch data from Contile server: NetworkError when attempting to fetch resource.
+JavaScript error: resource://gre/modules/CrashManager.jsm, line 898: AbortError: IOUtils: Shutting down and refusing additional I/O tasks
+
+###!!! [Parent][PGPUParent] Error: RunMessage(msgname=PGPU::Msg_ShutdownVR) Channel closing: too late to send/recv, messages will be lost
+
+1651340907725	geckodriver	INFO	Listening on 127.0.0.1:62179
+1651340911040	mozrunner::runner	INFO	Running command: "C:\\Program Files (x86)\\Mozilla Firefox\\firefox.exe" "--marionette" "--remote-debugging-port" "62180" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\Stewie\\AppData\\Local\\Temp\\rust_mozprofile9IS4W8"
+1651340914351	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\Stewie\\AppData\\Local\\Temp\\rust_mozprofile9IS4W8\\search.json.mozlz4", (void 0)))
+console.error: Region.jsm: "Error fetching region" (new Error("TIMEOUT", "resource://gre/modules/Region.jsm", 772))
+console.error: Region.jsm: "Failed to fetch region" (new Error("TIMEOUT", "resource://gre/modules/Region.jsm", 419))
+DevTools listening on ws://localhost:62180/devtools/browser/ebad5fba-ac12-46d6-91ad-99e4deb5c19b
+1651340928475	Marionette	INFO	Listening on port 62214
+Read port: 62214
+1651340929035	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: https://thepiratebay.org/static/main.js, line 51: unreachable code after return statement
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://thepiratebay.org"
+JavaScript warning: https://thepiratebay.org/static/main.js, line 51: unreachable code after return statement
+1651340963630	Marionette	WARN	TimedPromise timed out after 500 ms: stacktrace:
+TimedPromise/<@chrome://remote/content/marionette/sync.js:235:19
+TimedPromise@chrome://remote/content/marionette/sync.js:220:10
+interaction.flushEventLoop@chrome://remote/content/marionette/interaction.js:431:10
+webdriverClickElement@chrome://remote/content/marionette/interaction.js:179:31
+Get@https://thepiratebay.org/static/main.js:2:98
+make_search@https://thepiratebay.org/static/main.js:29:878
+print_search@https://thepiratebay.org/static/main.js:47:2509
+@https://thepiratebay.org/search.php?q=The+Blacklist+S09E18&all=on&page=0&orderby=:47:1
+JavaScript warning: https://c.adsco.re/, line 45: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+1651340980115	Marionette	WARN	TimedPromise timed out after 500 ms: stacktrace:
+TimedPromise/<@chrome://remote/content/marionette/sync.js:235:19
+TimedPromise@chrome://remote/content/marionette/sync.js:220:10
+interaction.flushEventLoop@chrome://remote/content/marionette/interaction.js:431:10
+webdriverClickElement@chrome://remote/content/marionette/interaction.js:179:31
+1651341006755	Marionette	WARN	Ignoring event 'DOMContentLoaded' because document has an invalid readyState of 'complete'.
+1651341023125	Marionette	INFO	Stopped listening on port 62214
+console.warn: TopSitesFeed: Failed to fetch data from Contile server: NetworkError when attempting to fetch resource.
+1651341036641	geckodriver	INFO	Listening on 127.0.0.1:62389
+1651341039589	mozrunner::runner	INFO	Running command: "C:\\Program Files (x86)\\Mozilla Firefox\\firefox.exe" "--marionette" "--remote-debugging-port" "62390" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\Stewie\\AppData\\Local\\Temp\\rust_mozprofilehN245O"
+1651341041341	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\Stewie\\AppData\\Local\\Temp\\rust_mozprofilehN245O\\search.json.mozlz4", (void 0)))
+console.error: Region.jsm: "Error fetching region" (new AbortError("The operation was aborted. ", (void 0), 770))
+console.error: Region.jsm: "Failed to fetch region" (new Error("NO_RESULT", "resource://gre/modules/Region.jsm", 419))
+DevTools listening on ws://localhost:62390/devtools/browser/75a52abf-29f2-4376-a9c4-d91151fbb11e
+1651341053092	Marionette	INFO	Listening on port 62423
+Read port: 62423
+1651341053623	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+1651341105361	geckodriver	INFO	Listening on 127.0.0.1:62471
+1651341108416	mozrunner::runner	INFO	Running command: "C:\\Program Files (x86)\\Mozilla Firefox\\firefox.exe" "--marionette" "--remote-debugging-port" "62472" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\Stewie\\AppData\\Local\\Temp\\rust_mozprofileboNWQI"
+1651341109441	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\Stewie\\AppData\\Local\\Temp\\rust_mozprofileboNWQI\\search.json.mozlz4", (void 0)))
+console.error: Region.jsm: "Error fetching region" (new AbortError("The operation was aborted. ", (void 0), 770))
+console.error: Region.jsm: "Failed to fetch region" (new Error("NO_RESULT", "resource://gre/modules/Region.jsm", 419))
+DevTools listening on ws://localhost:62472/devtools/browser/5370e721-01dc-472d-8583-ec308768c742
+1651341121202	Marionette	INFO	Listening on port 62498
+Read port: 62498
+1651341121784	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: https://thepiratebay.org/static/main.js, line 51: unreachable code after return statement
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://thepiratebay.org"
+JavaScript warning: https://thepiratebay.org/static/main.js, line 51: unreachable code after return statement
+1651341151648	Marionette	INFO	Stopped listening on port 62498
+
+###!!! [Child][PContentChild] Error: RunMessage(msgname=PHttpChannel::Msg_DeleteSelf) Channel closing: too late to send/recv, messages will be lost
+
+console.warn: TopSitesFeed: Failed to fetch data from Contile server: NetworkError when attempting to fetch resource.
+JavaScript error: resource://gre/modules/UrlClassifierListManager.jsm, line 691: TypeError: this.tablesData[table] is undefined
+1651341189478	geckodriver	INFO	Listening on 127.0.0.1:62583
+1651341192522	mozrunner::runner	INFO	Running command: "C:\\Program Files (x86)\\Mozilla Firefox\\firefox.exe" "--marionette" "--remote-debugging-port" "62584" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\Stewie\\AppData\\Local\\Temp\\rust_mozprofileCdcs0V"
+1651341194994	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\Stewie\\AppData\\Local\\Temp\\rust_mozprofileCdcs0V\\search.json.mozlz4", (void 0)))
+console.error: Region.jsm: "Error fetching region" (new AbortError("The operation was aborted. ", (void 0), 770))
+console.error: Region.jsm: "Failed to fetch region" (new Error("NO_RESULT", "resource://gre/modules/Region.jsm", 419))
+DevTools listening on ws://localhost:62584/devtools/browser/79d99f81-4c91-4b0e-88ff-bbb8f42b4c5a
+1651341204839	Marionette	INFO	Listening on port 62621
+Read port: 62621
+1651341205774	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: https://thepiratebay.org/static/main.js, line 51: unreachable code after return statement
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://thepiratebay.org"
+JavaScript warning: https://thepiratebay.org/static/main.js, line 51: unreachable code after return statement
+JavaScript warning: https://c.adsco.re/, line 45: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+1651341223204	Marionette	WARN	TimedPromise timed out after 500 ms: stacktrace:
+TimedPromise/<@chrome://remote/content/marionette/sync.js:235:19
+TimedPromise@chrome://remote/content/marionette/sync.js:220:10
+interaction.flushEventLoop@chrome://remote/content/marionette/interaction.js:431:10
+webdriverClickElement@chrome://remote/content/marionette/interaction.js:179:31
+1651341248280	Marionette	INFO	Stopped listening on port 62621
+console.warn: TopSitesFeed: Failed to fetch data from Contile server: NetworkError when attempting to fetch resource.
+[Parent 18236, IPC I/O Parent] WARNING: file /builds/worker/checkouts/gecko/ipc/chromium/src/base/process_util_win.cc:167
