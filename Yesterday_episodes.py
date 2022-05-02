@@ -54,6 +54,7 @@ def all_episodes(): # returns all episodes from the previous day that can be dow
             
             ep_num = season + episode
             search = tv_show_name + " " + ep_num
+            print("Downloading {}".format(search))
             browser.download(search)
             #all_episodes[tv_show_name] = ep_num
         else:
