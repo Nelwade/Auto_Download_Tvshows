@@ -5,12 +5,19 @@ Created on Mon Apr 25 10:23:09 2022
 @author: Owade
 """
 
-import re
+
 from urllib.request import Request, urlopen
 from bs4 import BeautifulSoup
+from browser import close_browser, search_and_download
+from win10toast import ToastNotifier
+
+import re
+import sys
 import re
 import os
-import browser
+import datetime
+
+notification = ToastNotifier() # creates window notification
 
 def if_in_favourites (tv_show_name):
     os.chdir(r'C:\Users\Stewie\Dropbox\My PC (DESKTOP-57VNQ1O)\Documents\Python projects\Auto_Download_Tvshows')
@@ -20,7 +27,7 @@ def if_in_favourites (tv_show_name):
         else:
             return False
 
-def all_episodes(): # returns all episodes from the previous day that can be downloaded in a dictionary
+def yester_episodes(): # returns all episodes from the previous day and dowloads each of them
     x = Request("https://next-episode.net/recent/",
                 headers={'User-Agent': 'Mozilla/5.0'}) # next-episode is a website that shows recent episodes
     x = urlopen(x)
@@ -54,15 +61,44 @@ def all_episodes(): # returns all episodes from the previous day that can be dow
             
             ep_num = season + episode
             episode_name = tv_show_name + " " + ep_num
-            print("Downloading {}".format(episode_name))
+
+            print("Downloading {}\n".format(episode_name))
+            notification.show_toast("AutoDownload", ("Downloading {}".format(episode_name)), duration = 30)
+
             
-            browser.search_and_download(episode_name)
+            search_and_download(episode_name) # Downloads the episode by name
             #all_episodes[tv_show_name] = ep_num
         else:
             continue
 
-all_episodes()
-    
+
+def exc():
+    time = datetime.datetime.now()
+    print("\n\n", time, "\n-----------------------------------\n")
+    try:
+        yester_episodes()
+    except:
+        print(sys.exc_info())
+
+
+
+# Manually creating logs in a selected folder
+
+os.chdir(
+    'C:\\Users\\Stewie\\Dropbox\\My PC (DESKTOP-57VNQ1O)\\Documents\\Python projects\\Auto_Download_Tvshows'
+    )
+if os.path.exists('logs.txt'):
+    with open('logs.txt', 'a', encoding="utf-8") as logs:
+        sys.stdout = logs
+        exc()   
+else:
+    with open('logs.txt', 'w', encoding="utf-8") as logs:
+        sys.stdout = logs
+        exc()
+        
+close_browser()
+
+
 
 
 
