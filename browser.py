@@ -8,10 +8,13 @@ from bs4 import BeautifulSoup
 
 from urllib.request import Request, urlopen
 
+from win10toast import ToastNotifier
+
 import time
 import pyautogui
 import pydirectinput
 
+notification = ToastNotifier() # creates window notification
 # For Firefox- Unindent to use
     # options = Options()
     # driver = Firefox(executable_path = 'C:/geckodriver', options=options)
@@ -56,7 +59,7 @@ def select_res(res):
 
     """
      # resolution = driver.find_element_by_xpath("//input[@id='f_1080p']")
-    print("Applying {} filter".format(res))
+    #print("Applying {} filter".format(res))
     driver.find_element_by_id('f_'+ res).click() # applying resolution filter
 
     close_pop_upwindows()
@@ -90,7 +93,7 @@ def open_torrent_app():
     x, y = pyautogui.locateCenterOnScreen('utorrent_button.png', confidence=0.9)
     time.sleep(5)
     pydirectinput.click(x, y)
-    print("clicked on U_torrent button")
+    #print("clicked on U_torrent button")
 
 def download(resolution):
     """ 
@@ -102,8 +105,7 @@ def download(resolution):
         name = eps.text
         #print(name)
         if "HEVC" in name: # additional filters
-            if 'jajaja' in name: # preferred name of torrent uploadder
-                print(name)
+            if 'jajaja' in name: # preferred name of torrent uploader
                 download_link = magnet_link(eps)
                 break
     
@@ -115,6 +117,8 @@ def download(resolution):
     time.sleep(5)
     close_pop_upwindows() # closes ads
     open_torrent_app ()
+    print("Download Initiated.......\n\n\n")
+    notification.show_toast("AutoDownload", "uTorrent Opened for Download. Please Accept or Deny Download", duration = 20)
 
 
 def search_and_download(search): 
@@ -141,12 +145,10 @@ def search_and_download(search):
         download(resolution)
 
     else:
+        print("1080p Resolution not found. Trying 720p resolution")
         resolution = select_res('720p')
         download(resolution)
-    
-    # time.sleep(10)
-    # driver.close()
-        
 
-
-
+def close_browser():
+    time.sleep(5)
+    driver.close()
