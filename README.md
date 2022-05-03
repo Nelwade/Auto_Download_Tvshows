@@ -4,3 +4,5 @@ Automation project: The program scrapes a website to track the release of the la
 Required packages:
   1. Selenium
   2. BeautifulSoup4
+  3. pyautogui
+  4. win10toast
