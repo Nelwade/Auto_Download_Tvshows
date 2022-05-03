@@ -2,7 +2,7 @@
 """
 Created on Mon Apr 25 10:23:09 2022
 
-@author: Stewie
+@author: Owade
 """
 
 import re
@@ -53,19 +53,15 @@ def all_episodes(): # returns all episodes from the previous day that can be dow
             episode = "E" + str(ep_num[1])
             
             ep_num = season + episode
-            search = tv_show_name + " " + ep_num
-            print("Downloading {}".format(search))
-            browser.download(search)
+            episode_name = tv_show_name + " " + ep_num
+            print("Downloading {}".format(episode_name))
+            
+            browser.search_and_download(episode_name)
             #all_episodes[tv_show_name] = ep_num
         else:
             continue
 
 all_episodes()
-    
-    # print(tv_show_name)
-    # print(season, " ", episode)
-    # print(ep_num)
-    # print("\n\n")
     
 
 
