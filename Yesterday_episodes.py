@@ -20,7 +20,9 @@ import datetime
 notification = ToastNotifier() # creates window notification
 
 def if_in_favourites (tv_show_name):
-    os.chdir(r'C:\Users\Stewie\Dropbox\My PC (DESKTOP-57VNQ1O)\Documents\Python projects\Auto_Download_Tvshows')
+    # This is the location of your favourite's list of tv shows
+    # It can be changed accordingly
+    #os.chdir('D:\\Python projects\\Auto_Download_Tvshows')
     with open('Favourite_Tvshows.txt') as file:
         if tv_show_name.lower() in file.read():
             return True
@@ -40,11 +42,14 @@ def yester_episodes(): # returns all episodes from the previous day and dowloads
     yester_eps = yester_eps.find_all('div')
 
     #all_episodes = dict() # All episodes from yesteday, dict will contain name of episode as key, and episode number as value
+    count = 0 # counts the number of episodes to be downloaded
     for div in yester_eps:
 
         tv_show_name = div.h3.string
 
         if if_in_favourites(tv_show_name) == True:
+            
+            count += 1
 
             ep_num = re.search('-\s.*\s-', div.text)
             ep_num = ep_num.group().strip("-").strip()
@@ -70,6 +75,12 @@ def yester_episodes(): # returns all episodes from the previous day and dowloads
             #all_episodes[tv_show_name] = ep_num
         else:
             continue
+        
+    if count == 0:
+        notification.show_toast("Autodownload", "No New Episodes Today", duration = 60)
+        print("No New Episodes Today")
+    else:
+        notification.show_toast("Autodownload", "{} download(s) opened today".format(count), duration = 60)
 
 
 def exc():
@@ -77,17 +88,20 @@ def exc():
     print("\n\n", time, "\n-----------------------------------\n")
     try:
         yester_episodes()
+        close_browser()
     except:
         print(sys.exc_info())
+        notification.show_toast("Autodownload", str(sys.exc_info()), duration = 60)
+        close_browser()
 
 
 
 # Manually creating logs in a selected folder
 
-os.chdir(
-    'C:\\Users\\Stewie\\Dropbox\\My PC (DESKTOP-57VNQ1O)\\Documents\\Python projects\\Auto_Download_Tvshows'
-    )
-if os.path.exists('logs.txt'):
+# os.chdir(
+#     '\Auto_Download_Tvshows'
+#     )
+if os.path.exists('\logs.txt'):
     with open('logs.txt', 'a', encoding="utf-8") as logs:
         sys.stdout = logs
         exc()   
@@ -95,13 +109,3 @@ else:
     with open('logs.txt', 'w', encoding="utf-8") as logs:
         sys.stdout = logs
         exc()
-        
-close_browser()
-
-
-
-
-
-# with open('pirate.txt', 'w') as next:
-# for line in x:
-# next.write(line.decode())
