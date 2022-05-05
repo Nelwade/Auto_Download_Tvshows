@@ -2,3 +2,7 @@
 *.pyc
 geckodriver.log
 *.pyc
+dist
+build
+logs.txt
+Autodownload.bat

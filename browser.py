@@ -20,6 +20,9 @@ notification = ToastNotifier() # creates window notification
     # driver = Firefox(executable_path = 'C:/geckodriver', options=options)
 
 options = webdriver.ChromeOptions()
+
+# sets the chrome user profile you want to use. This is set to the default profile. Change the path to reflect your preferences
+# or remove the code to let selenium pick a guest account
 options.add_argument(
     "--user-data-dir=C:\\Users\\Stewie\\AppData\\Local\\Google\\Chrome\\User Data"
     )
@@ -27,9 +30,9 @@ options.add_argument(
 # Prevents chrome from closing itself after execution of commands
 # options.add_experimental_option("detach", True)
 
-# load the chrome driver
+# load the chrome driver. Choose the path where the chromedriver/geckodriver is located.
 driver = webdriver.Chrome(
-    executable_path='C:/chromedriver',
+    executable_path='webdrivers/chromedriver',
     chrome_options=options
     ) 
 driver.implicitly_wait(0.5)
@@ -118,7 +121,7 @@ def download(resolution):
     close_pop_upwindows() # closes ads
     open_torrent_app ()
     print("Download Initiated.......\n\n\n")
-    notification.show_toast("AutoDownload", "uTorrent Opened for Download. Please Accept or Deny Download", duration = 20)
+    notification.show_toast("AutoDownload", "uTorrent Opened for Download. Please Accept or Deny Download", duration = 60)
 
 
 def search_and_download(search): 
@@ -139,16 +142,16 @@ def search_and_download(search):
 
     time.sleep(10)
 
-    resolution = select_res('1080p')
+    resolution = select_res('1080p') # selects 1080p resolution
     
-    if  resolution[1]!= 0:
+    if  resolution[1]!= 0: # if there are results after applying 1080p resolution
         download(resolution)
 
-    else:
+    else: # if there are no results for 1080p, selects 720p. If there is no 720p you are better off not dowloading it.
         print("1080p Resolution not found. Trying 720p resolution")
         resolution = select_res('720p')
         download(resolution)
 
-def close_browser():
+def close_browser(): # closes the browser
     time.sleep(5)
     driver.close()
