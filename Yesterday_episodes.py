@@ -23,7 +23,7 @@ def if_in_favourites (tv_show_name):
     # This is the location of your favourite's list of tv shows
     # It can be changed accordingly
     #os.chdir('D:\\Python projects\\Auto_Download_Tvshows')
-    with open('Favourite_Tvshows.txt') as file:
+    with open(r'D:\Python projects\Auto_Download_Tvshows\Favourite_Tvshows.txt') as file:
         if tv_show_name.lower() in file.read():
             return True
         else:
@@ -98,10 +98,10 @@ def exc():
 
 # Manually creating logs in a selected folder
 
-# os.chdir(
-#     '\Auto_Download_Tvshows'
-#     )
-if os.path.exists('\logs.txt'):
+os.chdir(
+     r'D:\Python projects\Auto_Download_Tvshows'
+     )
+if os.path.exists(r'D:\Python projects\Auto_Download_Tvshows\logs.txt'):
     with open('logs.txt', 'a', encoding="utf-8") as logs:
         sys.stdout = logs
         exc()   

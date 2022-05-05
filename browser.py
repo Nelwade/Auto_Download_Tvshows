@@ -10,6 +10,7 @@ from urllib.request import Request, urlopen
 
 from win10toast import ToastNotifier
 
+import chromedriver_autoinstaller
 import time
 import pyautogui
 import pydirectinput
@@ -19,6 +20,7 @@ notification = ToastNotifier() # creates window notification
     # options = Options()
     # driver = Firefox(executable_path = 'C:/geckodriver', options=options)
 
+chromedriver_autoinstaller.install() #automatically installs chromedriver and puts it in the path
 options = webdriver.ChromeOptions()
 
 # sets the chrome user profile you want to use. This is set to the default profile. Change the path to reflect your preferences
@@ -31,10 +33,11 @@ options.add_argument(
 # options.add_experimental_option("detach", True)
 
 # load the chrome driver. Choose the path where the chromedriver/geckodriver is located.
-driver = webdriver.Chrome(
-    executable_path='webdrivers/chromedriver',
-    chrome_options=options
-    ) 
+# driver = webdriver.Chrome(
+#     executable_path='webdrivers/chromedriver.exe',
+#     chrome_options=options
+#     )
+driver = webdriver.Chrome(chrome_options=options) 
 driver.implicitly_wait(0.5)
 
 #parent window. Will be useful when closing pop ups
