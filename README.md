@@ -5,4 +5,7 @@ Required packages:
   1. Selenium
   2. BeautifulSoup4
   3. pyautogui
-  4. win10toast
+  4. pydirectinput
+  5. win10toast
+  6. Pillow
+  7. OpenCv
