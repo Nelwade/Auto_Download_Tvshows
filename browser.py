@@ -28,7 +28,10 @@ options = webdriver.ChromeOptions()
 options.add_argument(
     "--user-data-dir=C:\\Users\\Stewie\\AppData\\Local\\Google\\Chrome\\User Data"
     )
-
+options.headless = True # setting headless mode
+# options.add_argument("--no-sandbox")
+options.add_argument("--disable-dev-shm-usage")
+options.add_argument('--disable-gpu')
 # Prevents chrome from closing itself after execution of commands
 # options.add_experimental_option("detach", True)
 
@@ -42,6 +45,8 @@ driver.implicitly_wait(0.5)
 
 #parent window. Will be useful when closing pop ups
 parent_window = driver.current_window_handle 
+
+#driver.maximize_window()
 
 def close_pop_upwindows():
     """
@@ -89,6 +94,64 @@ def magnet_link(eps):
     magnet = eps.find('span', class_= 'item-icons')
     magnet = magnet.a['href']
     return str(magnet)
+
+def enable_download(driver):
+    driver.command_executor._commands["send_command"] = ("POST", '/session/$sessionId/chromium/send_command')
+    params = {'cmd':'Page.setDownloadBehavior', 'params': {'behavior': 'allow', 'downloadPath': 'C:\\Users\\Stewie\\Downloads'}}
+    driver.execute("send_command", params)
+
+def torrent_file(magnet):
+    # driver.command_executor._commands["send_command"] = ("POST", '/session/$sessionId/chromium/send_command')
+
+    # params = {'cmd': 'Page.setDownloadBehavior', 'params': {'behavior': 'allow', 'downloadPath': r'C:\Users\Stewie\Downloads'}}
+    # driver.execute("send_command", params)
+
+    # notification.show_toast("Auto", "Headless Chrome Initiated", duration = 60)
+    #driver.get("http://magnet2torrent.com/")
+    driver.get('https://anonymiz.com/magnet2torrent/')
+    # search_box = driver.find_element_by_id('input_box')
+    
+    time.sleep(5)
+    search_box = driver.find_element_by_id('magnet')
+    search_box.send_keys(magnet)
+
+    time.sleep(5)
+
+    driver.find_element_by_id('submit').click()
+    print("submitted")
+    
+
+    # time.sleep(10)
+    # driver.find_element_by_class_name('cc_btn cc_btn_accept_all').click()
+    # driver.find_element_by_class_name('cc_message').click()
+
+    time.sleep(5)
+    html = driver.page_source   # gets page source after selection of filter
+    soup = BeautifulSoup(html, 'html.parser')
+    torrent_link = soup.find('div', class_= 'alert')
+    torrent_link = torrent_link.a['href']
+    driver.get(torrent_link)
+    torrent_link = torrent_link.replace(' ', '')
+    torrent_link = Request(torrent_link, headers={'User-Agent': 'Mozilla/5.0'})
+    urlopen(torrent_link)
+    
+    
+    # driver.find_element_by_xpath('/html/body/div[3]/div/div/div[1]/div[4]/div/div/div/div/a[1]').click()
+    # /html/body/div[3]/div/div/div[1]/div[4]/div/div/div/div/a[1]
+    # //*[@id="magnet2torrent"]/div/div/a[1]
+    #driver.find_element_class_name('alert')
+    notification.show_toast("Auto", "Torrent file downloaded", duration = 60)
+    print("Downloaded")
+    
+    # driver.implicitly_wait(3)
+    # search_box.send_keys(Keys.ENTER)
+    # search_box.submit()
+
+enable_download(driver)
+torrent_file("magnet:?xt=urn:btih:59223897F6433166CC6C906ACD13F17722B7E81B&dn=Simple+Plan+-+Harder+Than+It+Looks+%282022%29+Mp3+320kbps+%5BPMEDIA%5D+%E2%AD%90%EF%B8%8F&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Fopen.stealth.si%3A80%2Fannounce&tr=udp%3A%2F%2Fretracker.lanta-net.ru%3A2710%2Fannounce&tr=udp%3A%2F%2Fexodus.desync.com%3A6969%2Fannounce&tr=udp%3A%2F%2Fopentor.org%3A2710%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Fipv4.tracker.harry.lu%3A80%2Fannounce&tr=udp%3A%2F%2Fexplodie.org%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.cyberia.is%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.tiny-vps.com%3A6969%2Fannounce&tr=udp%3A%2F%2Fipv6.tracker.harry.lu%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969%2Fannounce&tr=udp%3A%2F%2F9.rarbg.to%3A2710%2Fannounce&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.open-internet.nl%3A6969%2Fannounce&tr=udp%3A%2F%2Fopen.demonii.si%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.pirateparty.gr%3A6969%2Fannounce&tr=udp%3A%2F%2Fdenis.stalker.upeer.me%3A6969%2Fannounce&tr=udp%3A%2F%2Fp4p.arenabg.com%3A1337%2Fannounce")
+driver.close()
+driver.quit()
+notification.show_toast("Auto", "Chrome Closing", duration = 60)
 
 def open_torrent_app():
     """
