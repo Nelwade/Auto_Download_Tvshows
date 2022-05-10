@@ -158,3 +158,4 @@ def search_and_download(search):
 def close_browser(): # closes the browser
     time.sleep(5)
     driver.close()
+    driver.quit()
