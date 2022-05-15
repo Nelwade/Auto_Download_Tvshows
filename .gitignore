@@ -3,4 +3,6 @@ geckodriver.log
 logs.txt
 Autodownload.bat
 autovenv
+geckodriver.log
 __pycache__
+
