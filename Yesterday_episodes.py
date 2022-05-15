@@ -10,6 +10,7 @@ from urllib.request import Request, urlopen
 from bs4 import BeautifulSoup
 from browser import close_browser, search_and_download
 from win10toast import ToastNotifier
+from browser import launch_chromedriver, launch_firefoxdriver
 
 import re
 import sys
@@ -30,10 +31,14 @@ def if_in_favourites (tv_show_name):
             return False
 
 def yester_episodes(): # returns all episodes from the previous day and dowloads each of them
-    x = Request("https://next-episode.net/recent/",
-                headers={'User-Agent': 'Mozilla/5.0'}) # next-episode is a website that shows recent episodes
-    x = urlopen(x)
-    html = x.read().decode("latin-1")
+    driver = launch_firefoxdriver()
+    driver.get("https://next-episode.net/recent/")
+    # x = Request("https://next-episode.net/recent/",
+    #             headers={'User-Agent': 'Mozilla/5.0'}) # next-episode is a website that shows recent episodes
+    # x = urlopen(x)
+    # html = x.read().decode("latin-1")
+
+    html = driver.page_source
     soup = BeautifulSoup(html, "html.parser")
 
     recent_episodes = soup.find_all('span', class_ = "footer") # recent episodes are within <span class = "footer">
@@ -68,7 +73,7 @@ def yester_episodes(): # returns all episodes from the previous day and dowloads
             episode_name = tv_show_name + " " + ep_num
 
             print("Downloading {}\n".format(episode_name))
-            notification.show_toast("AutoDownload", ("Downloading {}".format(episode_name)), duration = 30)
+            notification.show_toast("AutoDownload", ("Downloading {}".format(episode_name)), duration = 5)
 
             
             search_and_download(episode_name) # Downloads the episode by name
@@ -77,10 +82,10 @@ def yester_episodes(): # returns all episodes from the previous day and dowloads
             continue
         
     if count == 0:
-        notification.show_toast("Autodownload", "No New Episodes Today", duration = 60)
+        notification.show_toast("Autodownload", "No New Episodes Today", duration = 5)
         print("No New Episodes Today")
     else:
-        notification.show_toast("Autodownload", "{} download(s) opened today".format(count), duration = 60)
+        notification.show_toast("Autodownload", "{} download(s) opened today".format(count), duration = 5)
 
 
 def exc():
@@ -91,9 +96,8 @@ def exc():
         close_browser()
     except:
         print(sys.exc_info())
-        notification.show_toast("Autodownload", str(sys.exc_info()), duration = 60)
+        notification.show_toast("Autodownload", str(sys.exc_info()), duration = 5)
         close_browser()
-
 
 
 # Manually creating logs in a selected folder

@@ -11,38 +11,59 @@ from urllib.request import Request, urlopen
 from win10toast import ToastNotifier
 
 import chromedriver_autoinstaller
+import geckodriver_autoinstaller
 import time
 import pyautogui
 import pydirectinput
 
 notification = ToastNotifier() # creates window notification
-# For Firefox- Unindent to use
-    # options = Options()
-    # driver = Firefox(executable_path = 'C:/geckodriver', options=options)
 
-chromedriver_autoinstaller.install() #automatically installs chromedriver and puts it in the path
-options = webdriver.ChromeOptions()
+def launch_firefoxdriver():
+# For Firefox browser
+# Firefox does not have download restricitions in headless mode
 
-# sets the chrome user profile you want to use. This is set to the default profile. Change the path to reflect your preferences
-# or remove the code to let selenium pick a guest account
-options.add_argument(
-    "--user-data-dir=C:\\Users\\Stewie\\AppData\\Local\\Google\\Chrome\\User Data"
-    )
-options.headless = True # setting headless mode
-# options.add_argument("--no-sandbox")
-options.add_argument("--disable-dev-shm-usage")
-options.add_argument('--disable-gpu')
-# Prevents chrome from closing itself after execution of commands
-# options.add_experimental_option("detach", True)
+    # geckodriver_autoinstaller.install() # for autoinstalling geckodriver
+    options = Options()
+    options.headless = True
+    driver = Firefox(
+        executable_path = 'D:\\Python projects\\Auto_Download_Tvshows\\webdrivers\\geckodriver',
+        options=options
+        )
+    # drive =webdriver.Firefox()
 
-# load the chrome driver. Choose the path where the chromedriver/geckodriver is located.
-# driver = webdriver.Chrome(
-#     executable_path='webdrivers/chromedriver.exe',
-#     chrome_options=options
-#     )
-driver = webdriver.Chrome(chrome_options=options) 
-driver.implicitly_wait(0.5)
+    driver.implicitly_wait(0.5)
+    return driver
 
+def launch_chromedriver():
+    # For Chrome browser
+
+    chromedriver_autoinstaller.install() #automatically installs chromedriver and puts it in the path
+    options = webdriver.ChromeOptions()
+
+    # sets the chrome user profile you want to use. This is set to the default profile. Change the path to reflect your preferences
+    # or remove the code to let selenium pick a guest account
+    options.add_argument(
+        "--user-data-dir=C:\\Users\\Stewie\\AppData\\Local\\Google\\Chrome\\User Data"
+        )
+    # options.headless = True # setting headless mode
+    # options.add_argument("--no-sandbox")
+    # options.add_argument("--disable-dev-shm-usage")
+    # options.add_argument('--disable-gpu')
+    # Prevents chrome from closing itself after execution of commands
+    # options.add_experimental_option("detach", True)
+
+    # load the chrome driver. Choose the path where the chromedriver/geckodriver is located.
+    # driver = webdriver.Chrome(
+    #     executable_path='webdrivers/chromedriver.exe',
+    #     chrome_options=options
+    #     )
+
+
+    driver = webdriver.Chrome(chrome_options=options) 
+    driver.implicitly_wait(0.5)
+    return driver
+
+driver = launch_firefoxdriver()
 #parent window. Will be useful when closing pop ups
 parent_window = driver.current_window_handle 
 
@@ -86,7 +107,7 @@ def select_res(res):
     filtered = soup.find_all('li', id= 'st', style ='') # Provides a list of filtered results
     return [filtered, len(filtered)]
 
-def magnet_link(eps):
+def magnet(eps):
     """
     This function extracts and returns the magnet link for a selected download as a string
 
@@ -95,68 +116,48 @@ def magnet_link(eps):
     magnet = magnet.a['href']
     return str(magnet)
 
-def enable_download(driver):
-    driver.command_executor._commands["send_command"] = ("POST", '/session/$sessionId/chromium/send_command')
-    params = {'cmd':'Page.setDownloadBehavior', 'params': {'behavior': 'allow', 'downloadPath': 'C:\\Users\\Stewie\\Downloads'}}
-    driver.execute("send_command", params)
-
-def torrent_file(magnet):
-    # driver.command_executor._commands["send_command"] = ("POST", '/session/$sessionId/chromium/send_command')
-
-    # params = {'cmd': 'Page.setDownloadBehavior', 'params': {'behavior': 'allow', 'downloadPath': r'C:\Users\Stewie\Downloads'}}
-    # driver.execute("send_command", params)
-
-    # notification.show_toast("Auto", "Headless Chrome Initiated", duration = 60)
+def download_torrent_file(magnet_link):
+    """
+    This function converts the magnet link into a .torrent file that is downloaded
+    and automatically loaded by utorrent 
+    
+    """
     #driver.get("http://magnet2torrent.com/")
     driver.get('https://anonymiz.com/magnet2torrent/')
     # search_box = driver.find_element_by_id('input_box')
-    
+
     time.sleep(5)
+
     search_box = driver.find_element_by_id('magnet')
-    search_box.send_keys(magnet)
+    search_box.send_keys(magnet_link)
 
     time.sleep(5)
 
     driver.find_element_by_id('submit').click()
-    print("submitted")
     
-
-    # time.sleep(10)
-    # driver.find_element_by_class_name('cc_btn cc_btn_accept_all').click()
-    # driver.find_element_by_class_name('cc_message').click()
-
     time.sleep(5)
-    html = driver.page_source   # gets page source after selection of filter
-    soup = BeautifulSoup(html, 'html.parser')
-    torrent_link = soup.find('div', class_= 'alert')
-    torrent_link = torrent_link.a['href']
-    driver.get(torrent_link)
-    torrent_link = torrent_link.replace(' ', '')
-    torrent_link = Request(torrent_link, headers={'User-Agent': 'Mozilla/5.0'})
-    urlopen(torrent_link)
     
+    torrent_link = driver.find_element_by_xpath(
+        '/html/body/div[3]/div/div/div[1]/div[4]/div/div/div/div/a[1]'
+        )
+    torrent_link.click()
+    print("Torrent file downloaded")
     
-    # driver.find_element_by_xpath('/html/body/div[3]/div/div/div[1]/div[4]/div/div/div/div/a[1]').click()
-    # /html/body/div[3]/div/div/div[1]/div[4]/div/div/div/div/a[1]
-    # //*[@id="magnet2torrent"]/div/div/a[1]
-    #driver.find_element_class_name('alert')
-    notification.show_toast("Auto", "Torrent file downloaded", duration = 60)
-    print("Downloaded")
+    notification.show_toast("Autodownload", "Torrent file downloaded", duration = 5)
     
-    # driver.implicitly_wait(3)
-    # search_box.send_keys(Keys.ENTER)
-    # search_box.submit()
 
-enable_download(driver)
-torrent_file("magnet:?xt=urn:btih:59223897F6433166CC6C906ACD13F17722B7E81B&dn=Simple+Plan+-+Harder+Than+It+Looks+%282022%29+Mp3+320kbps+%5BPMEDIA%5D+%E2%AD%90%EF%B8%8F&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Fopen.stealth.si%3A80%2Fannounce&tr=udp%3A%2F%2Fretracker.lanta-net.ru%3A2710%2Fannounce&tr=udp%3A%2F%2Fexodus.desync.com%3A6969%2Fannounce&tr=udp%3A%2F%2Fopentor.org%3A2710%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Fipv4.tracker.harry.lu%3A80%2Fannounce&tr=udp%3A%2F%2Fexplodie.org%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.cyberia.is%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.tiny-vps.com%3A6969%2Fannounce&tr=udp%3A%2F%2Fipv6.tracker.harry.lu%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969%2Fannounce&tr=udp%3A%2F%2F9.rarbg.to%3A2710%2Fannounce&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.open-internet.nl%3A6969%2Fannounce&tr=udp%3A%2F%2Fopen.demonii.si%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.pirateparty.gr%3A6969%2Fannounce&tr=udp%3A%2F%2Fdenis.stalker.upeer.me%3A6969%2Fannounce&tr=udp%3A%2F%2Fp4p.arenabg.com%3A1337%2Fannounce")
-driver.close()
-driver.quit()
-notification.show_toast("Auto", "Chrome Closing", duration = 60)
+# enable_download(driver)
+# torrent_file("magnet:?xt=urn:btih:59223897F6433166CC6C906ACD13F17722B7E81B&dn=Simple+Plan+-+Harder+Than+It+Looks+%282022%29+Mp3+320kbps+%5BPMEDIA%5D+%E2%AD%90%EF%B8%8F&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Fopen.stealth.si%3A80%2Fannounce&tr=udp%3A%2F%2Fretracker.lanta-net.ru%3A2710%2Fannounce&tr=udp%3A%2F%2Fexodus.desync.com%3A6969%2Fannounce&tr=udp%3A%2F%2Fopentor.org%3A2710%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Fipv4.tracker.harry.lu%3A80%2Fannounce&tr=udp%3A%2F%2Fexplodie.org%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.cyberia.is%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.tiny-vps.com%3A6969%2Fannounce&tr=udp%3A%2F%2Fipv6.tracker.harry.lu%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969%2Fannounce&tr=udp%3A%2F%2F9.rarbg.to%3A2710%2Fannounce&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.open-internet.nl%3A6969%2Fannounce&tr=udp%3A%2F%2Fopen.demonii.si%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.pirateparty.gr%3A6969%2Fannounce&tr=udp%3A%2F%2Fdenis.stalker.upeer.me%3A6969%2Fannounce&tr=udp%3A%2F%2Fp4p.arenabg.com%3A1337%2Fannounce")
+# driver.close()
+# driver.quit()
+# notification.show_toast("Auto", "Chrome Closing", duration = 5)
 
 def open_torrent_app():
     """
     This function opens the torrent app by clicking the 'open torrent' prompt 
     that pops up when magnet link is opened
+
+    Used in non-headless mode
     
     """
     x, y = pyautogui.locateCenterOnScreen('utorrent_button.png', confidence=0.9)
@@ -169,25 +170,21 @@ def download(resolution):
     This function opens the magnet link and and the torrent app after choosing a specific download
     
     """
-    download_link = ''
+    magnet_link = ''
     for eps in resolution[0]:
         name = eps.text
         #print(name)
         if "HEVC" in name: # additional filters
             if 'jajaja' in name: # preferred name of torrent uploader
-                download_link = magnet_link(eps)
+                magnet_link = magnet(eps)
                 break
     
     # if the above conditions are not met, this downloads the first element on the list of downloads
-    if download_link == '': 
-        download_link = magnet_link(resolution[0][0])
+    if magnet_link == '': 
+        magnet_link = magnet(resolution[0][0])
 
-    driver.get(download_link) # opens magnet link
-    time.sleep(5)
-    close_pop_upwindows() # closes ads
-    open_torrent_app ()
-    print("Download Initiated.......\n\n\n")
-    notification.show_toast("AutoDownload", "uTorrent Opened for Download. Please Accept or Deny Download", duration = 60)
+    download_torrent_file(magnet_link)
+    
 
 
 def search_and_download(search): 
@@ -219,5 +216,5 @@ def search_and_download(search):
         download(resolution)
 
 def close_browser(): # closes the browser
-    time.sleep(5)
     driver.close()
+    driver.quit()
