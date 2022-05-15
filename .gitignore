@@ -3,6 +3,6 @@ geckodriver.log
 logs.txt
 Autodownload.bat
 autovenv
-__pycache__
-__pycache__/browser.cpython-39.pyc
 geckodriver.log
+__pycache__
+
