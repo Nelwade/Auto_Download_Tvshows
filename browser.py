@@ -73,9 +73,8 @@ def select_res(res):
     # Check if resolution checkbox is selected, if not it tries again until selected
     while not driver.find_element_by_id('f_' + res).is_selected():
         driver.find_element_by_id('f_' + res).click()
-        time.sleep(5)
+        time.sleep(1)
 
-    time.sleep(5)
     html = driver.page_source   # gets page source after selection of filter
     soup = BeautifulSoup(html, 'html.parser')
     filtered = soup.find_all('li', id= 'st', style ='') # Provides a list of filtered results
@@ -120,11 +119,11 @@ def download(resolution):
         download_link = magnet_link(resolution[0][0])
 
     driver.get(download_link) # opens magnet link
-    time.sleep(5)
+    time.sleep(1)
     close_pop_upwindows() # closes ads
     open_torrent_app ()
     print("Download Initiated.......\n\n\n")
-    notification.show_toast("AutoDownload", "uTorrent Opened for Download. Please Accept or Deny Download", duration = 60)
+    notification.show_toast("AutoDownload", "uTorrent Opened for Download. Please Accept or Deny Download", duration = 2)
 
 
 def search_and_download(search): 
@@ -143,7 +142,7 @@ def search_and_download(search):
     #torrent.send_keys(Keys.ENTER)
     torrent.submit()
 
-    time.sleep(10)
+    time.sleep(2)
 
     resolution = select_res('1080p') # selects 1080p resolution
     
@@ -156,6 +155,5 @@ def search_and_download(search):
         download(resolution)
 
 def close_browser(): # closes the browser
-    time.sleep(5)
     driver.close()
     driver.quit()

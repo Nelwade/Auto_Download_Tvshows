@@ -68,7 +68,7 @@ def yester_episodes(): # returns all episodes from the previous day and dowloads
             episode_name = tv_show_name + " " + ep_num
 
             print("Downloading {}\n".format(episode_name))
-            notification.show_toast("AutoDownload", ("Downloading {}".format(episode_name)), duration = 30)
+            notification.show_toast("AutoDownload", ("Downloading {}".format(episode_name)), duration = 1)
 
             
             search_and_download(episode_name) # Downloads the episode by name
@@ -77,10 +77,10 @@ def yester_episodes(): # returns all episodes from the previous day and dowloads
             continue
         
     if count == 0:
-        notification.show_toast("Autodownload", "No New Episodes Today", duration = 60)
+        notification.show_toast("Autodownload", "No New Episodes Today", duration = 5)
         print("No New Episodes Today")
     else:
-        notification.show_toast("Autodownload", "{} download(s) opened today".format(count), duration = 60)
+        notification.show_toast("Autodownload", "{} download(s) opened today".format(count), duration = 5)
 
 
 def exc():
@@ -91,7 +91,7 @@ def exc():
         close_browser()
     except:
         print(sys.exc_info())
-        notification.show_toast("Autodownload", str(sys.exc_info()), duration = 60)
+        notification.show_toast("Autodownload", str(sys.exc_info()), duration = 5)
         close_browser()
 
 
