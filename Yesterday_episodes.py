@@ -31,14 +31,14 @@ def if_in_favourites (tv_show_name):
             return False
 
 def yester_episodes(): # returns all episodes from the previous day and dowloads each of them
-    driver = launch_firefoxdriver()
-    driver.get("https://next-episode.net/recent/")
-    # x = Request("https://next-episode.net/recent/",
-    #             headers={'User-Agent': 'Mozilla/5.0'}) # next-episode is a website that shows recent episodes
-    # x = urlopen(x)
-    # html = x.read().decode("latin-1")
+    # driver = launch_firefoxdriver()
+    # driver.get("https://next-episode.net/recent/")
+    x = Request("https://next-episode.net/recent/",
+                headers={'User-Agent': 'Mozilla/5.0'}) # next-episode is a website that shows recent episodes
+    x = urlopen(x)
+    html = x.read().decode("latin-1")
 
-    html = driver.page_source
+    # html = driver.page_source
     soup = BeautifulSoup(html, "html.parser")
 
     recent_episodes = soup.find_all('span', class_ = "footer") # recent episodes are within <span class = "footer">
@@ -75,9 +75,13 @@ def yester_episodes(): # returns all episodes from the previous day and dowloads
             print("Downloading {}\n".format(episode_name))
             notification.show_toast("AutoDownload", ("Downloading {}".format(episode_name)), duration = 5)
 
-            
-            search_and_download(episode_name) # Downloads the episode by name
+            try:
+                search_and_download(episode_name) # Downloads the episode by name
             #all_episodes[tv_show_name] = ep_num
+            except:
+                print("Download of episode not started because of ", sys.exc_info())
+                notification.show_toast("Autodownload", str(sys.exc_info()), duration = 5)
+                continue
         else:
             continue
         

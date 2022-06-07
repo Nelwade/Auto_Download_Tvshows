@@ -31,7 +31,7 @@ def launch_firefoxdriver():
         )
     # drive =webdriver.Firefox()
 
-    driver.implicitly_wait(0.5)
+    driver.implicitly_wait(10)
     return driver
 
 def launch_chromedriver():
@@ -60,10 +60,11 @@ def launch_chromedriver():
 
 
     driver = webdriver.Chrome(chrome_options=options) 
-    driver.implicitly_wait(0.5)
+    
     return driver
 
 driver = launch_firefoxdriver()
+driver.implicitly_wait(20)
 #parent window. Will be useful when closing pop ups
 parent_window = driver.current_window_handle 
 
@@ -80,7 +81,6 @@ def close_pop_upwindows():
             if window != parent_window:
                 driver.switch_to.window(window)
                 driver.close()
-        time.sleep(2)
         driver.switch_to.window(parent_window)
 
 
@@ -126,24 +126,37 @@ def download_torrent_file(magnet_link):
     driver.get('https://anonymiz.com/magnet2torrent/')
     # search_box = driver.find_element_by_id('input_box')
 
-    time.sleep(5)
+    time.sleep(1)
 
     search_box = driver.find_element_by_id('magnet')
     search_box.send_keys(magnet_link)
 
-    time.sleep(5)
+    # time.sleep(5)
 
     driver.find_element_by_id('submit').click()
     
-    time.sleep(5)
+    close_pop_upwindows()
     
+    time.sleep(3)
+
+    driver.implicitly_wait(10)
+    
+    # torrent_link = driver.find_element_by_xpath(
+    #     '/html/body/div[2]/div/div/div[1]/div[4]/div/div/div/div/a[1]'
+    #     )
     torrent_link = driver.find_element_by_xpath(
-        '/html/body/div[3]/div/div/div[1]/div[4]/div/div/div/div/a[1]'
-        )
+        '/html/body/div[3]/div/div/div[1]/div[4]/div/div/div/div/a[3]'  
+    )  
+    # /html/body/div[2]/div/div/div[1]/div[4]/div/div/div/div/a[3]
+    
     torrent_link.click()
+    
+    download_link = driver.find_element_by_id("torrent-operation-link")
+    
+    download_link.click()
     print("Torrent file downloaded")
     
-    notification.show_toast("Autodownload", "Torrent file downloaded", duration = 5)
+    notification.show_toast("Autodownload", "Torrent file downloaded", duration = 3)
     
 
 # enable_download(driver)
@@ -195,15 +208,13 @@ def search_and_download(search):
     """
     driver.get("https://thepiratebay.org/index.html")
     torrent = driver.find_elements_by_name("q")[1] # There were more than one search elements named q. The second one was the pirate search
-    driver.implicitly_wait(10)
 
     # perform search for torrent
     torrent.send_keys(search)
-    driver.implicitly_wait(1)
     #torrent.send_keys(Keys.ENTER)
     torrent.submit()
 
-    time.sleep(10)
+    time.sleep(1)
 
     resolution = select_res('1080p') # selects 1080p resolution
     
@@ -218,3 +229,4 @@ def search_and_download(search):
 def close_browser(): # closes the browser
     driver.close()
     driver.quit()
+    notification.show_toast("Autodownload", "Browser Closed", duration = 5)
