@@ -5,4 +5,4 @@ Autodownload.bat
 autovenv
 geckodriver.log
 __pycache__
-
+*.pyc

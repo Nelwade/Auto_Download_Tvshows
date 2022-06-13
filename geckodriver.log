@@ -2809,18 +2809,27 @@ Read port: 62217
 1654619041390	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
 DevTools listening on ws://localhost:62152/devtools/browser/ea78a9a9-0b72-48d6-b1ec-4c2b7bd73814
 JavaScript error: , line 0: NS_ERROR_NOT_AVAILABLE
-1:62342
-1654619082137	mozrunner::runner	INFO	Running command: "C:\\Program Files (x86)\\Mozilla Firefox\\firefox.exe" "--marionette" "-headless" "--remote-debugging-port" "62343" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\Stewie\\AppData\\Local\\Temp\\rust_mozprofileHjNqTk"
-*** You are running in headless mode.
-1654619084442	Marionette	INFO	Marionette enabled
-WebDriver BiDi listening on ws://localhost:62343
-[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
-console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\Stewie\\AppData\\Local\\Temp\\rust_mozprofileHjNqTk\\search.json.mozlz4", (void 0)))
-console.error: Region.jsm: "Error fetching region" (new AbortError("The operation was aborted. ", (void 0), 765))
-console.error: Region.jsm: "Failed to fetch region" (new Error("NO_RESULT", "resource://gre/modules/Region.jsm", 419))
-1654619095237	Marionette	INFO	Listening on port 62405
-Read port: 62405
-1654619095325	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: , line 0: NS_ERROR_NOT_AVAILABLE
+JavaScript error: , line 0: NotFoundError: Could not move source file(C:\Users\Stewie\AppData\Local\Temp\rust_mozprofile0jQpxT\bookmarkbackups\bookmarks-2022-06-09_11_P-t0YMhgBwG1YgyyYKOCYw==.jsonlz4) because it does not exist
+console.error: services.settings: 
+  Message: TypeError: NetworkError: Network request failed
+  Stack:
+    fetch/</request.onerror@resource://services-settings/Utils.jsm:153:26
+
+console.error: services.settings: 
+  Message: TypeError: NetworkError: Network request failed
+  Stack:
+    fetch/</request.onerror@resource://services-settings/Utils.jsm:153:26
+
+console.error: services.settings: 
+  Message: NetworkOfflineError: Network is offline
+  Stack:
+    NetworkOfflineError@resource://services-settings/RemoteSettingsClient.jsm:128:5
+maybeSync@resource://services-settings/RemoteSettingsClient.jsm:573:15
+remoteSettingsFunction/remoteSettings.pollChanges@resource://services-settings/remote-settings.js:348:22
+
+JavaScript error: , line 0: NS_ERROR_NOT_AVAILABLE
+Agent	WARN	TLS certificate errors will be ignored for this session
 DevTools listening on ws://localhost:62343/devtools/browser/07336536-a6d6-4838-89a5-7ba6f57faa6c
 JavaScript warning: https://thepiratebay.org/static/main.js, line 51: unreachable code after return statement
 console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://thepiratebay.org"
@@ -3007,3 +3016,300 @@ Read port: 64829
 1654619944304	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
 DevTools listening on ws://localhost:64762/devtools/browser/60a0cde9-7607-4a44-b2fd-26fb9f6b51c4
 1654619961115	Marionette	INFO	Stopped listening on port 64829
+1654721215137	geckodriver	INFO	Listening on 127.0.0.1:52616
+1654721218970	mozrunner::runner	INFO	Running command: "C:\\Program Files (x86)\\Mozilla Firefox\\firefox.exe" "--marionette" "-headless" "--remote-debugging-port" "52617" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\Stewie\\AppData\\Local\\Temp\\rust_mozprofilecARF2y"
+*** You are running in headless mode.
+1654721323482	Marionette	INFO	Marionette enabled
+WebDriver BiDi listening on ws://localhost:52617
+console.error: Region.jsm: "Error fetching region" (new Error("TIMEOUT", "resource://gre/modules/Region.jsm", 767))
+console.error: Region.jsm: "Failed to fetch region" (new Error("TIMEOUT", "resource://gre/modules/Region.jsm", 419))
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\Stewie\\AppData\\Local\\Temp\\rust_mozprofilecARF2y\\search.json.mozlz4", (void 0)))
+1654723271143	geckodriver	INFO	Listening on 127.0.0.1:52776
+1654723274382	mozrunner::runner	INFO	Running command: "C:\\Program Files (x86)\\Mozilla Firefox\\firefox.exe" "--marionette" "-headless" "--remote-debugging-port" "52777" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\Stewie\\AppData\\Local\\Temp\\rust_mozprofileU3ET7e"
+*** You are running in headless mode.
+1654723277810	Marionette	INFO	Marionette enabled
+WebDriver BiDi listening on ws://localhost:52777
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\Stewie\\AppData\\Local\\Temp\\rust_mozprofileU3ET7e\\search.json.mozlz4", (void 0)))
+console.error: Region.jsm: "Error fetching region" (new Error("TIMEOUT", "resource://gre/modules/Region.jsm", 767))
+console.error: Region.jsm: "Failed to fetch region" (new Error("TIMEOUT", "resource://gre/modules/Region.jsm", 419))
+1654723302232	Marionette	INFO	Listening on port 52806
+Read port: 52806
+1654723303703	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+DevTools listening on ws://localhost:52777/devtools/browser/b7a7613d-7514-496c-8763-36589375bfb5
+1654723321559	Marionette	INFO	Stopped listening on port 52806
+!!! error running onStopped callback: TypeError: callback is not a function
+JavaScript error: resource://gre/modules/UrlClassifierListManager.jsm, line 694: TypeError: this.tablesData[table] is undefined
+[Parent 12260, IPC I/O Parent] WARNING: file /builds/worker/checkouts/gecko/ipc/chromium/src/base/process_util_win.cc:167
+1654723361962	geckodriver	INFO	Listening on 127.0.0.1:52835
+1654723365039	mozrunner::runner	INFO	Running command: "C:\\Program Files (x86)\\Mozilla Firefox\\firefox.exe" "--marionette" "-headless" "--remote-debugging-port" "52836" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\Stewie\\AppData\\Local\\Temp\\rust_mozprofilepj1OND"
+*** You are running in headless mode.
+1654723368316	Marionette	INFO	Marionette enabled
+WebDriver BiDi listening on ws://localhost:52836
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\Stewie\\AppData\\Local\\Temp\\rust_mozprofilepj1OND\\search.json.mozlz4", (void 0)))
+console.error: Region.jsm: "Error fetching region" (new Error("TIMEOUT", "resource://gre/modules/Region.jsm", 767))
+console.error: Region.jsm: "Failed to fetch region" (new Error("TIMEOUT", "resource://gre/modules/Region.jsm", 419))
+1654723396726	Marionette	INFO	Listening on port 52874
+Read port: 52874
+1654723396940	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+DevTools listening on ws://localhost:52836/devtools/browser/30ce5f16-916f-44c2-9b4c-c3bdea5144ae
+1654723406472	Marionette	INFO	Stopped listening on port 52874
+JavaScript error: resource://activity-stream/lib/ActivityStreamPrefs.jsm, line 27: NS_ERROR_ILLEGAL_VALUE: Component returned failure code: 0x80070057 (NS_ERROR_ILLEGAL_VALUE) [nsIPrefBranch.removeObserver]
+!!! error running onStopped callback: TypeError: callback is not a function
+JavaScript error: resource://gre/modules/JSONFile.jsm, line 186: Error: Data is not ready.
+WARNING: At least one completion condition is taking too long to complete. Conditions: [{"name":"Remote Settings profile-before-change","state":"Remaining: 5 callbacks (importJSONDump-main-anti-tracking-url-decoration-1, importJSONDump-main-hijack-blocklists-2, importJSONDump-main-search-telemetry-v2-3, importJSONDump-main-search-config-4, importJSONDump-blocklists-gfx-5).","filename":"resource://services-settings/RemoteSettingsWorker.jsm","lineNumber":201,"stack":["resource://services-settings/RemoteSettingsWorker.jsm:null:201","resource://services-settings/RemoteSettingsClient.jsm:_importJSONDump:838","resource://services-settings/RemoteSettingsClient.jsm:get/this._importingPromise<:375","resource://services-settings/RemoteSettingsClient.jsm:get:390"]}] Barrier: profile-before-change
+console.error: (new Error("SessionFile is closed", "resource:///modules/sessionstore/SessionFile.jsm", 379))
+JavaScript error: resource://gre/modules/CrashManager.jsm, line 906: AbortError: IOUtils: Shutting down and refusing additional I/O tasks
+console.warn: TopSitesFeed: Failed to fetch data from Contile server: NetworkError when attempting to fetch resource.
+JavaScript error: resource://activity-stream/lib/PlacesFeed.jsm, line 178: NS_ERROR_UNEXPECTED: Component returned failure code: 0x8000ffff (NS_ERROR_UNEXPECTED) [nsINavBookmarksService.addObserver]
+JavaScript error: resource://gre/modules/JSONFile.jsm, line 138: AbortError: IOUtils.profileBeforeChange getter: IOUtils: profileBeforeChange phase has already finished
+*** UTM:SVC TimerManager:registerTimer called after profile-before-change notification. Ignoring timer registration for id: telemetry_modules_ping
+*** UTM:SVC TimerManager:registerTimer called after profile-before-change notification. Ignoring timer registration for id: telemetry_untrustedmodules_ping
+console.log: "RemoteSettingsWorker error: Error: Can't import when we've started shutting down."
+console.log: "RemoteSettingsWorker error: Error: Can't import when we've started shutting down."
+console.log: "RemoteSettingsWorker error: Error: Can't import when we've started shutting down."
+console.log: "RemoteSettingsWorker error: Error: Can't import when we've started shutting down."
+console.log: "RemoteSettingsWorker error: Error: Can't import when we've started shutting down."
+1654796336571	geckodriver	INFO	Listening on 127.0.0.1:57973
+1654800804485	geckodriver	INFO	Listening on 127.0.0.1:59451
+1654800808355	mozrunner::runner	INFO	Running command: "C:\\Program Files (x86)\\Mozilla Firefox\\firefox.exe" "--marionette" "-headless" "--remote-debugging-port" "59452" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\Stewie\\AppData\\Local\\Temp\\rust_mozprofilehlzs1I"
+*** You are running in headless mode.
+1654800833041	Marionette	INFO	Marionette enabled
+WebDriver BiDi listening on ws://localhost:59452
+console.error: Region.jsm: "Error fetching region" (new Error("TIMEOUT", "resource://gre/modules/Region.jsm", 767))
+console.error: Region.jsm: "Failed to fetch region" (new Error("TIMEOUT", "resource://gre/modules/Region.jsm", 419))
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\Stewie\\AppData\\Local\\Temp\\rust_mozprofilehlzs1I\\search.json.mozlz4", (void 0)))
+1654800867836	Marionette	INFO	Listening on port 59535
+Read port: 59535
+1654800869198	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+DevTools listening on ws://localhost:59452/devtools/browser/f8e17525-4f67-4303-92c3-fd1600951adc
+JavaScript warning: https://thepiratebay.org/static/main.js, line 51: unreachable code after return statement
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://thepiratebay.org"
+JavaScript warning: https://thepiratebay.org/static/main.js, line 51: unreachable code after return statement
+1654800904166	Marionette	WARN	TimedPromise timed out after 500 ms: stacktrace:
+TimedPromise/<@chrome://remote/content/marionette/sync.js:235:19
+TimedPromise@chrome://remote/content/marionette/sync.js:220:10
+interaction.flushEventLoop@chrome://remote/content/marionette/interaction.js:431:10
+webdriverClickElement@chrome://remote/content/marionette/interaction.js:179:31
+Get@https://thepiratebay.org/static/main.js:2:98
+make_search@https://thepiratebay.org/static/main.js:29:878
+print_search@https://thepiratebay.org/static/main.js:47:2509
+@https://thepiratebay.org/search.php?q=Obi-Wan+Kenobi+S01E04+-+Part+IV&all=on&page=0&orderby=:47:1
+1654800904933	Marionette	WARN	TimedPromise timed out after 500 ms: stacktrace:
+TimedPromise/<@chrome://remote/content/marionette/sync.js:235:19
+TimedPromise@chrome://remote/content/marionette/sync.js:220:10
+interaction.flushEventLoop@chrome://remote/content/marionette/interaction.js:431:10
+webdriverClickElement@chrome://remote/content/marionette/interaction.js:179:31
+Get@https://thepiratebay.org/static/main.js:2:98
+make_search@https://thepiratebay.org/static/main.js:29:878
+print_search@https://thepiratebay.org/static/main.js:47:2509
+@https://thepiratebay.org/search.php?q=Obi-Wan+Kenobi+S01E04+-+Part+IV&all=on&page=0&orderby=:47:1
+JavaScript warning: https://c.adsco.re/, line 45: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+1654800943306	Marionette	WARN	TimedPromise timed out after 500 ms: stacktrace:
+TimedPromise/<@chrome://remote/content/marionette/sync.js:235:19
+TimedPromise@chrome://remote/content/marionette/sync.js:220:10
+interaction.flushEventLoop@chrome://remote/content/marionette/interaction.js:431:10
+webdriverClickElement@chrome://remote/content/marionette/interaction.js:179:31
+JavaScript warning: https://thepiratebay.org/static/main.js, line 51: unreachable code after return statement
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://thepiratebay.org"
+JavaScript warning: https://thepiratebay.org/static/main.js, line 51: unreachable code after return statement
+1654800991927	Marionette	WARN	TimedPromise timed out after 500 ms: stacktrace:
+TimedPromise/<@chrome://remote/content/marionette/sync.js:235:19
+TimedPromise@chrome://remote/content/marionette/sync.js:220:10
+interaction.flushEventLoop@chrome://remote/content/marionette/interaction.js:431:10
+webdriverClickElement@chrome://remote/content/marionette/interaction.js:179:31
+Get@https://thepiratebay.org/static/main.js:2:98
+make_search@https://thepiratebay.org/static/main.js:29:878
+print_search@https://thepiratebay.org/static/main.js:47:2509
+@https://thepiratebay.org/search.php?q=Ms.+Marvel+S01E01&all=on&page=0&orderby=:47:1
+JavaScript warning: https://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js, line 2: Using //@ to indicate sourceMappingURL pragmas is deprecated. Use //# instead
+JavaScript warning: https://c.adsco.re/, line 45: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+[Child 2524, MediaDecoderStateMachine #1] WARNING: 184061ba780 Could not set cubeb stream name.: file /builds/worker/checkouts/gecko/dom/media/AudioStream.cpp:317
+1654801148996	Marionette	INFO	Stopped listening on port 59535
+1654801184697	geckodriver	INFO	Listening on 127.0.0.1:59799
+1654801187897	mozrunner::runner	INFO	Running command: "C:\\Program Files (x86)\\Mozilla Firefox\\firefox.exe" "--marionette" "-headless" "--remote-debugging-port" "59800" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\Stewie\\AppData\\Local\\Temp\\rust_mozprofileOk2XLg"
+*** You are running in headless mode.
+1654801190572	Marionette	INFO	Marionette enabled
+WebDriver BiDi listening on ws://localhost:59800
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\Stewie\\AppData\\Local\\Temp\\rust_mozprofileOk2XLg\\search.json.mozlz4", (void 0)))
+1654801209651	Marionette	INFO	Listening on port 59857
+DevTools listening on ws://localhost:59800/devtools/browser/3cdcb7c2-9068-45c3-9312-7d3acf6e77d7
+Read port: 59857
+1654801209862	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: https://thepiratebay.org/static/main.js, line 51: unreachable code after return statement
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://thepiratebay.org"
+JavaScript warning: https://thepiratebay.org/static/main.js, line 51: unreachable code after return statement
+1654801237113	Marionette	WARN	TimedPromise timed out after 500 ms: stacktrace:
+TimedPromise/<@chrome://remote/content/marionette/sync.js:235:19
+TimedPromise@chrome://remote/content/marionette/sync.js:220:10
+interaction.flushEventLoop@chrome://remote/content/marionette/interaction.js:431:10
+webdriverClickElement@chrome://remote/content/marionette/interaction.js:179:31
+Get@https://thepiratebay.org/static/main.js:2:98
+make_search@https://thepiratebay.org/static/main.js:29:878
+print_search@https://thepiratebay.org/static/main.js:47:2509
+@https://thepiratebay.org/search.php?q=Obi-Wan+Kenobi+S01E04+-+Part+IV&all=on&page=0&orderby=:47:1
+1654801237962	Marionette	WARN	TimedPromise timed out after 500 ms: stacktrace:
+TimedPromise/<@chrome://remote/content/marionette/sync.js:235:19
+TimedPromise@chrome://remote/content/marionette/sync.js:220:10
+interaction.flushEventLoop@chrome://remote/content/marionette/interaction.js:431:10
+webdriverClickElement@chrome://remote/content/marionette/interaction.js:179:31
+Get@https://thepiratebay.org/static/main.js:2:98
+make_search@https://thepiratebay.org/static/main.js:29:878
+print_search@https://thepiratebay.org/static/main.js:47:2509
+@https://thepiratebay.org/search.php?q=Obi-Wan+Kenobi+S01E04+-+Part+IV&all=on&page=0&orderby=:47:1
+JavaScript warning: https://c.adsco.re/, line 45: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+1654801277385	Marionette	WARN	TimedPromise timed out after 500 ms: stacktrace:
+TimedPromise/<@chrome://remote/content/marionette/sync.js:235:19
+TimedPromise@chrome://remote/content/marionette/sync.js:220:10
+interaction.flushEventLoop@chrome://remote/content/marionette/interaction.js:431:10
+webdriverClickElement@chrome://remote/content/marionette/interaction.js:179:31
+JavaScript warning: https://thepiratebay.org/static/main.js, line 51: unreachable code after return statement
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://thepiratebay.org"
+JavaScript warning: https://thepiratebay.org/static/main.js, line 51: unreachable code after return statement
+1654801316958	Marionette	WARN	TimedPromise timed out after 500 ms: stacktrace:
+TimedPromise/<@chrome://remote/content/marionette/sync.js:235:19
+TimedPromise@chrome://remote/content/marionette/sync.js:220:10
+interaction.flushEventLoop@chrome://remote/content/marionette/interaction.js:431:10
+webdriverClickElement@chrome://remote/content/marionette/interaction.js:179:31
+Get@https://thepiratebay.org/static/main.js:2:98
+make_search@https://thepiratebay.org/static/main.js:29:878
+print_search@https://thepiratebay.org/static/main.js:47:2509
+@https://thepiratebay.org/search.php?q=Ms.+Marvel+S01E01&all=on&page=0&orderby=:47:1
+JavaScript warning: https://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js, line 2: Using //@ to indicate sourceMappingURL pragmas is deprecated. Use //# instead
+[Child 12924, MediaDecoderStateMachine #1] WARNING: 1a5694cb450 Could not set cubeb stream name.: file /builds/worker/checkouts/gecko/dom/media/AudioStream.cpp:317
+JavaScript warning: https://c.adsco.re/, line 45: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+[Child 12924, MediaDecoderStateMachine #1] WARNING: 1a5694cbbc0 Could not set cubeb stream name.: file /builds/worker/checkouts/gecko/dom/media/AudioStream.cpp:317
+1654801487999	Marionette	INFO	Stopped listening on port 59857
+
+###!!! [Parent][PImageBridgeParent] Error: RunMessage(msgname=PImageBridge::Msg_WillClose) Channel closing: too late to send/recv, messages will be lost
+
+1654872375239	geckodriver	INFO	Listening on 127.0.0.1:64309
+1654872378355	mozrunner::runner	INFO	Running command: "C:\\Program Files (x86)\\Mozilla Firefox\\firefox.exe" "--marionette" "-headless" "--remote-debugging-port" "64310" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\Stewie\\AppData\\Local\\Temp\\rust_mozprofilewWp6FT"
+*** You are running in headless mode.
+1654872383699	Marionette	INFO	Marionette enabled
+WebDriver BiDi listening on ws://localhost:64310
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\Stewie\\AppData\\Local\\Temp\\rust_mozprofilewWp6FT\\search.json.mozlz4", (void 0)))
+1654872403249	Marionette	INFO	Listening on port 64350
+Read port: 64350
+1654872403499	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+DevTools listening on ws://localhost:64310/devtools/browser/73724dd8-ebc9-4d6d-a073-e44b931bd3ad
+JavaScript error: , line 0: NS_ERROR_NOT_AVAILABLE
+1654873671131	Marionette	INFO	Stopped listening on port 64350
+!!! error running onStopped callback: TypeError: callback is not a function
+[Parent 476, IPC I/O Parent] WARNING: file /builds/worker/checkouts/gecko/ipc/chromium/src/base/process_util_win.cc:167
+1654874087045	geckodriver	INFO	Listening on 127.0.0.1:61833
+1654874090048	mozrunner::runner	INFO	Running command: "C:\\Program Files (x86)\\Mozilla Firefox\\firefox.exe" "--marionette" "-headless" "--remote-debugging-port" "61834" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\Stewie\\AppData\\Local\\Temp\\rust_mozprofileuieKC0"
+*** You are running in headless mode.
+1654874092202	Marionette	INFO	Marionette enabled
+WebDriver BiDi listening on ws://localhost:61834
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\Stewie\\AppData\\Local\\Temp\\rust_mozprofileuieKC0\\search.json.mozlz4", (void 0)))
+1654874102167	Marionette	INFO	Listening on port 61863
+DevTools listening on ws://localhost:61834/devtools/browser/d6d78080-8e0b-44f7-b38e-80c5fe2da49f
+Read port: 61863
+1654874102572	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: https://thepiratebay.org/static/main.js, line 51: unreachable code after return statement
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://thepiratebay.org"
+JavaScript warning: https://thepiratebay.org/static/main.js, line 51: unreachable code after return statement
+1654874126693	Marionette	WARN	TimedPromise timed out after 500 ms: stacktrace:
+TimedPromise/<@chrome://remote/content/marionette/sync.js:235:19
+TimedPromise@chrome://remote/content/marionette/sync.js:220:10
+interaction.flushEventLoop@chrome://remote/content/marionette/interaction.js:431:10
+webdriverClickElement@chrome://remote/content/marionette/interaction.js:179:31
+Get@https://thepiratebay.org/static/main.js:2:98
+make_search@https://thepiratebay.org/static/main.js:29:878
+print_search@https://thepiratebay.org/static/main.js:47:2509
+@https://thepiratebay.org/search.php?q=The+Orville+S03E02&all=on&page=0&orderby=:47:1
+1654874127474	Marionette	WARN	TimedPromise timed out after 500 ms: stacktrace:
+TimedPromise/<@chrome://remote/content/marionette/sync.js:235:19
+TimedPromise@chrome://remote/content/marionette/sync.js:220:10
+interaction.flushEventLoop@chrome://remote/content/marionette/interaction.js:431:10
+webdriverClickElement@chrome://remote/content/marionette/interaction.js:179:31
+Get@https://thepiratebay.org/static/main.js:2:98
+make_search@https://thepiratebay.org/static/main.js:29:878
+print_search@https://thepiratebay.org/static/main.js:47:2509
+@https://thepiratebay.org/search.php?q=The+Orville+S03E02&all=on&page=0&orderby=:47:1
+JavaScript warning: https://c.adsco.re/, line 45: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+1654874137863	Marionette	WARN	TimedPromise timed out after 500 ms: stacktrace:
+TimedPromise/<@chrome://remote/content/marionette/sync.js:235:19
+TimedPromise@chrome://remote/content/marionette/sync.js:220:10
+interaction.flushEventLoop@chrome://remote/content/marionette/interaction.js:431:10
+webdriverClickElement@chrome://remote/content/marionette/interaction.js:179:31
+JavaScript error: https://thepiratebay.org/search.php?q=The+Orville+S03E02&all=on&page=0&orderby= line 10 > injectedScript, line 1: SecurityError: Permission denied to access property "document" on cross-origin object
+JavaScript error: https://thepiratebay.org/search.php?q=The+Orville+S03E02&all=on&page=0&orderby= line 10 > injectedScript, line 1: SecurityError: Permission denied to access property "document" on cross-origin object
+JavaScript error: https://thepiratebay.org/search.php?q=The+Orville+S03E02&all=on&page=0&orderby= line 10 > injectedScript, line 1: SecurityError: Permission denied to access property "document" on cross-origin object
+JavaScript error: https://thepiratebay.org/search.php?q=The+Orville+S03E02&all=on&page=0&orderby= line 10 > injectedScript, line 1: SecurityError: Permission denied to access property "document" on cross-origin object
+JavaScript error: https://thepiratebay.org/search.php?q=The+Orville+S03E02&all=on&page=0&orderby= line 10 > injectedScript, line 1: SecurityError: Permission denied to access property "document" on cross-origin object
+JavaScript error: https://thepiratebay.org/search.php?q=The+Orville+S03E02&all=on&page=0&orderby= line 10 > injectedScript, line 1: SecurityError: Permission denied to access property "document" on cross-origin object
+JavaScript error: https://thepiratebay.org/search.php?q=The+Orville+S03E02&all=on&page=0&orderby= line 10 > injectedScript, line 1: SecurityError: Permission denied to access property "document" on cross-origin object
+JavaScript error: https://thepiratebay.org/search.php?q=The+Orville+S03E02&all=on&page=0&orderby= line 10 > injectedScript, line 1: SecurityError: Permission denied to access property "document" on cross-origin object
+JavaScript error: https://thepiratebay.org/search.php?q=The+Orville+S03E02&all=on&page=0&orderby= line 10 > injectedScript, line 1: SecurityError: Permission denied to access property "document" on cross-origin object
+JavaScript error: https://thepiratebay.org/search.php?q=The+Orville+S03E02&all=on&page=0&orderby= line 10 > injectedScript, line 1: SecurityError: Permission denied to access property "document" on cross-origin object
+JavaScript error: https://thepiratebay.org/search.php?q=The+Orville+S03E02&all=on&page=0&orderby= line 10 > injectedScript, line 1: SecurityError: Permission denied to access property "document" on cross-origin object
+JavaScript error: https://thepiratebay.org/search.php?q=The+Orville+S03E02&all=on&page=0&orderby= line 10 > injectedScript, line 1: SecurityError: Permission denied to access property "document" on cross-origin object
+JavaScript error: https://thepiratebay.org/search.php?q=The+Orville+S03E02&all=on&page=0&orderby= line 10 > injectedScript, line 1: SecurityError: Permission denied to access property "document" on cross-origin object
+JavaScript error: https://thepiratebay.org/search.php?q=The+Orville+S03E02&all=on&page=0&orderby= line 10 > injectedScript, line 1: SecurityError: Permission denied to access property "document" on cross-origin object
+JavaScript error: https://thepiratebay.org/search.php?q=The+Orville+S03E02&all=on&page=0&orderby= line 10 > injectedScript, line 1: SecurityError: Permission denied to access property "document" on cross-origin object
+JavaScript error: https://thepiratebay.org/search.php?q=The+Orville+S03E02&all=on&page=0&orderby= line 10 > injectedScript, line 1: SecurityError: Permission denied to access property "document" on cross-origin object
+JavaScript error: https://thepiratebay.org/search.php?q=The+Orville+S03E02&all=on&page=0&orderby= line 10 > injectedScript, line 1: SecurityError: Permission denied to access property "document" on cross-origin object
+JavaScript error: https://thepiratebay.org/search.php?q=The+Orville+S03E02&all=on&page=0&orderby= line 10 > injectedScript, line 1: SecurityError: Permission denied to access property "document" on cross-origin object
+JavaScript error: https://thepiratebay.org/search.php?q=The+Orville+S03E02&all=on&page=0&orderby= line 10 > injectedScript, line 1: SecurityError: Permission denied to access property "document" on cross-origin object
+JavaScript error: https://thepiratebay.org/search.php?q=The+Orville+S03E02&all=on&page=0&orderby= line 10 > injectedScript, line 1: SecurityError: Permission denied to access property "document" on cross-origin object
+JavaScript error: https://thepiratebay.org/search.php?q=The+Orville+S03E02&all=on&page=0&orderby= line 10 > injectedScript, line 1: SecurityError: Permission denied to access property "document" on cross-origin object
+JavaScript error: https://thepiratebay.org/search.php?q=The+Orville+S03E02&all=on&page=0&orderby= line 10 > injectedScript, line 1: SecurityError: Permission denied to access property "document" on cross-origin object
+JavaScript error: https://thepiratebay.org/search.php?q=The+Orville+S03E02&all=on&page=0&orderby= line 10 > injectedScript, line 1: SecurityError: Permission denied to access property "document" on cross-origin object
+JavaScript error: https://thepiratebay.org/search.php?q=The+Orville+S03E02&all=on&page=0&orderby= line 10 > injectedScript, line 1: SecurityError: Permission denied to access property "document" on cross-origin object
+JavaScript warning: https://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js, line 2: Using //@ to indicate sourceMappingURL pragmas is deprecated. Use //# instead
+JavaScript error: https://thepiratebay.org/search.php?q=The+Orville+S03E02&all=on&page=0&orderby= line 10 > injectedScript, line 1: SecurityError: Permission denied to access property "document" on cross-origin object
+JavaScript error: https://thepiratebay.org/search.php?q=The+Orville+S03E02&all=on&page=0&orderby= line 10 > injectedScript, line 1: SecurityError: Permission denied to access property "document" on cross-origin object
+JavaScript error: https://thepiratebay.org/search.php?q=The+Orville+S03E02&all=on&page=0&orderby= line 10 > injectedScript, line 1: SecurityError: Permission denied to access property "document" on cross-origin object
+JavaScript error: https://thepiratebay.org/search.php?q=The+Orville+S03E02&all=on&page=0&orderby= line 10 > injectedScript, line 1: SecurityError: Permission denied to access property "document" on cross-origin object
+JavaScript error: https://thepiratebay.org/search.php?q=The+Orville+S03E02&all=on&page=0&orderby= line 10 > injectedScript, line 1: SecurityError: Permission denied to access property "document" on cross-origin object
+JavaScript error: https://thepiratebay.org/search.php?q=The+Orville+S03E02&all=on&page=0&orderby= line 10 > injectedScript, line 1: SecurityError: Permission denied to access property "document" on cross-origin object
+JavaScript error: https://thepiratebay.org/search.php?q=The+Orville+S03E02&all=on&page=0&orderby= line 10 > injectedScript, line 1: SecurityError: Permission denied to access property "document" on cross-origin object
+JavaScript error: https://thepiratebay.org/search.php?q=The+Orville+S03E02&all=on&page=0&orderby= line 10 > injectedScript, line 1: SecurityError: Permission denied to access property "document" on cross-origin object
+JavaScript error: https://thepiratebay.org/search.php?q=The+Orville+S03E02&all=on&page=0&orderby= line 10 > injectedScript, line 1: SecurityError: Permission denied to access property "document" on cross-origin object
+JavaScript error: https://thepiratebay.org/search.php?q=The+Orville+S03E02&all=on&page=0&orderby= line 10 > injectedScript, line 1: SecurityError: Permission denied to access property "document" on cross-origin object
+JavaScript error: https://thepiratebay.org/search.php?q=The+Orville+S03E02&all=on&page=0&orderby= line 10 > injectedScript, line 1: SecurityError: Permission denied to access property "document" on cross-origin object
+JavaScript error: https://thepiratebay.org/search.php?q=The+Orville+S03E02&all=on&page=0&orderby= line 10 > injectedScript, line 1: SecurityError: Permission denied to access property "document" on cross-origin object
+JavaScript error: https://thepiratebay.org/search.php?q=The+Orville+S03E02&all=on&page=0&orderby= line 10 > injectedScript, line 1: SecurityError: Permission denied to access property "document" on cross-origin object
+JavaScript error: https://thepiratebay.org/search.php?q=The+Orville+S03E02&all=on&page=0&orderby= line 10 > injectedScript, line 1: SecurityError: Permission denied to access property "document" on cross-origin object
+JavaScript error: https://thepiratebay.org/search.php?q=The+Orville+S03E02&all=on&page=0&orderby= line 10 > injectedScript, line 1: SecurityError: Permission denied to access property "document" on cross-origin object
+JavaScript error: https://thepiratebay.org/search.php?q=The+Orville+S03E02&all=on&page=0&orderby= line 10 > injectedScript, line 1: SecurityError: Permission denied to access property "document" on cross-origin object
+JavaScript error: https://thepiratebay.org/search.php?q=The+Orville+S03E02&all=on&page=0&orderby= line 10 > injectedScript, line 1: SecurityError: Permission denied to access property "document" on cross-origin object
+JavaScript error: https://thepiratebay.org/search.php?q=The+Orville+S03E02&all=on&page=0&orderby= line 10 > injectedScript, line 1: SecurityError: Permission denied to access property "document" on cross-origin object
+JavaScript error: https://thepiratebay.org/search.php?q=The+Orville+S03E02&all=on&page=0&orderby= line 10 > injectedScript, line 1: SecurityError: Permission denied to access property "document" on cross-origin object
+JavaScript error: https://thepiratebay.org/search.php?q=The+Orville+S03E02&all=on&page=0&orderby= line 10 > injectedScript, line 1: SecurityError: Permission denied to access property "document" on cross-origin object
+JavaScript error: https://thepiratebay.org/search.php?q=The+Orville+S03E02&all=on&page=0&orderby= line 10 > injectedScript, line 1: SecurityError: Permission denied to access property "document" on cross-origin object
+JavaScript error: https://thepiratebay.org/search.php?q=The+Orville+S03E02&all=on&page=0&orderby= line 10 > injectedScript, line 1: SecurityError: Permission denied to access property "document" on cross-origin object
+JavaScript error: https://thepiratebay.org/search.php?q=The+Orville+S03E02&all=on&page=0&orderby= line 10 > injectedScript, line 1: SecurityError: Permission denied to access property "document" on cross-origin object
+JavaScript error: https://thepiratebay.org/search.php?q=The+Orville+S03E02&all=on&page=0&orderby= line 10 > injectedScript, line 1: SecurityError: Permission denied to access property "document" on cross-origin object
+JavaScript error: https://thepiratebay.org/search.php?q=The+Orville+S03E02&all=on&page=0&orderby= line 10 > injectedScript, line 1: SecurityError: Permission denied to access property "document" on cross-origin object
+JavaScript error: https://thepiratebay.org/search.php?q=The+Orville+S03E02&all=on&page=0&orderby= line 10 > injectedScript, line 1: SecurityError: Permission denied to access property "document" on cross-origin object
+JavaScript error: https://thepiratebay.org/search.php?q=The+Orville+S03E02&all=on&page=0&orderby= line 10 > injectedScript, line 1: SecurityError: Permission denied to access property "document" on cross-origin object
+JavaScript error: https://thepiratebay.org/search.php?q=The+Orville+S03E02&all=on&page=0&orderby= line 10 > injectedScript, line 1: SecurityError: Permission denied to access property "document" on cross-origin object
+JavaScript warning: https://c.adsco.re/, line 45: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+1654874216501	Marionette	INFO	Stopped listening on port 61863
+
+###!!! [Parent][PImageBridgeParent] Error: RunMessage(msgname=PImageBridge::Msg_WillClose) Channel closing: too late to send/recv, messages will be lost
+
+1655061126807	geckodriver	INFO	Listening on 127.0.0.1:61183
+1655061129349	mozrunner::runner	INFO	Running command: "C:\\Program Files (x86)\\Mozilla Firefox\\firefox.exe" "--marionette" "-headless" "--remote-debugging-port" "61184" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\Stewie\\AppData\\Local\\Temp\\rust_mozprofileWkkqj7"
+*** You are running in headless mode.
+1655061144156	Marionette	INFO	Marionette enabled
+WebDriver BiDi listening on ws://localhost:61184
+console.error: Region.jsm: "Error fetching region" (new Error("TIMEOUT", "resource://gre/modules/Region.jsm", 767))
+console.error: Region.jsm: "Failed to fetch region" (new Error("TIMEOUT", "resource://gre/modules/Region.jsm", 419))
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\Stewie\\AppData\\Local\\Temp\\rust_mozprofileWkkqj7\\search.json.mozlz4", (void 0)))
+1655061180072	Marionette	INFO	Listening on port 61218
+Read port: 61218
+1655061181446	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+DevTools listening on ws://localhost:61184/devtools/browser/0d8256b6-6233-4534-9eeb-946ea52e5913
+1655061193835	Marionette	INFO	Stopped listening on port 61218
+JavaScript error: resource://gre/modules/CrashManager.jsm, line 906: AbortError: IOUtils: Shutting down and refusing additional I/O tasks
